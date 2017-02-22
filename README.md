@@ -1,6 +1,6 @@
 # Ansible role Monit webserver
 
-Version: 0.0.1
+Version: 0.0.2
 
 Supported OS: Ubuntu
 
@@ -16,8 +16,8 @@ monit_webserver_use_letsencrypt: False
 
 # Webserver configurations
 monit_webserver_http_port: 2812
-monit_webserver_accept_from: 0.0.1.0
-monit_webserver_allow_from: 0.0.1.0
+monit_webserver_accept_from: 0.0.2.0
+monit_webserver_allow_from: 0.0.2.0
 
 # Credentials for the admin user
 monit_webserver_username: admin

@@ -1,0 +1,26 @@
+---
+
+- name: Configure Monit webservice
+  template:
+    src: etc/monit/conf.d/webserver.j2
+    dest: /etc/monit/conf.d/webserver.conf
+  notify:
+    - Reload Monit
+
+- name: Configure Nginx
+  template:
+    src: etc/nginx/sites-available/monit.j2
+    dest: "/etc/nginx/sites-available/{{ monit_webserver_hostname }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Reload Nginx
+
+- name: Enable Owncloud site configuration
+  file:
+    src: "/etc/nginx/sites-available/{{ monit_webserver_hostname }}"
+    dest: /etc/nginx/sites-enabled/01-{{ monit_webserver_hostname }}
+    state: link
+  notify:
+    - Reload Nginx

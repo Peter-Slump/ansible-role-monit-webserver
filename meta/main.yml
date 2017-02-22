@@ -1,0 +1,17 @@
+---
+
+dependencies:
+  - src: https://github.com/Peter-Slump/ansible-role-monit.git
+    version: 0.0.1
+    scm: git
+    name: monit
+  - src: https://github.com/Peter-Slump/ansible-role-nginx.git
+    version: 0.0.1
+    scm: git
+    name: nginx
+
+  - role: monit
+  - role: nginx
+    nginx_ssl_hostname: "{{ monit_webserver_hostname }}"
+    nginx_use_letsencrypt: "{{ monit_webserver_use_letsencrypt }}"
+    nginx_use_self_signed_ssl: "{{ monit_webserver_use_self_signed_ssl }}"

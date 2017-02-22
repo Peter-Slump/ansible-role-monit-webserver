@@ -1,0 +1,12 @@
+---
+
+monit_webserver_hostname: monit.example.com
+
+monit_webserver_use_self_signed_ssl: False
+monit_webserver_use_letsencrypt: False
+
+monit_webserver_http_port: 2812
+monit_webserver_accept_from: 0.0.0.0
+monit_webserver_allow_from: 0.0.0.0
+monit_webserver_username: admin
+monit_webserver_password: super-secret-password
